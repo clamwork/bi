@@ -16,7 +16,8 @@ spring:
     url: jdbc:mysql://192.168.23.14:8066/crm?useUnicode=true&autoReconnect=true&amp;characterEncoding=UTF8&allowMultiQueries=true
     username: djcrm
     password: dongjingcrm
-    connectionProperties: druid.stat.mergeSql=true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    type: com.alibaba.druid.pool.DruidDataSource
 
     #连接池
     initialSize: 5
@@ -26,6 +27,7 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
     validationQuery: SELECT 1 FROM DUAL
+
 
   #rabbit 配置
   rabbitmq:
@@ -40,6 +42,7 @@ mybatis:
   type-aliases-package: com.djcps.boot.modules.*.model
   #mapper.xml所在位置
   mapper-locations: classpath:mapper/**/*Mapper.xml
+  config-location: classpath:mybatis-config.xml
 
 
 #日志

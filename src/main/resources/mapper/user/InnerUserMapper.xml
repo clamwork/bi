@@ -6,18 +6,19 @@
     <!--目的：为Dao接口方法提供SQL语句-->
 
     <!--映射实体对象-->
-    <resultMap id="innerUserResultMap" type="com.djcps.boot.modules.user.model.InnerUserPO">
-        <id property="fid" column="id" />
-        <result property="fusername" column="userName" />
+    <resultMap id="BaseResultMap" type="com.djcps.boot.modules.user.model.InnerUserPO">
+        <id property="id" column="fuserid" jdbcType="VARCHAR" />
+        <result property="userName" column="faccount" jdbcType="VARCHAR" />
     </resultMap>
+
     <sql id="baseSearchSql">
-        rowid as fid,
-        faccount as fusername
+        fuserid,
+        faccount
     </sql>
 
-    <select id="findAll" resultMap="innerUserResultMap">
+    <select id="findAll" resultMap="BaseResultMap">
         SELECT <include refid="baseSearchSql" />
-        FROM t_account_parent
+        FROM t_account_parent limit 0,15
     </select>
 
 </mapper>
