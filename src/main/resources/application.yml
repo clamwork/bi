@@ -33,8 +33,8 @@ spring:
   rabbitmq:
     port: 5672
     host: 192.168.10.185
-    username: xianqian
-    password: xianqian
+    username: xiaoqian
+    password: xiaoqian
 
 
 mybatis:
