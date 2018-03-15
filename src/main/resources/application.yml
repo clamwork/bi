@@ -1,0 +1,49 @@
+server:
+  port: 17173
+  servlet:
+    path: /demo
+
+spring:
+  redis:
+    database: 0
+    host: 192.168.10.173
+    port: 6379
+    password: djredis
+
+   # datasource 数据源配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.23.14:8066/crm?useUnicode=true&autoReconnect=true&amp;characterEncoding=UTF8&allowMultiQueries=true
+    username: djcrm
+    password: dongjingcrm
+    connectionProperties: druid.stat.mergeSql=true
+
+    #连接池
+    initialSize: 5
+    min-idle: 5
+    max-active: 20
+    max-wait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+
+  #rabbit 配置
+  rabbitmq:
+    port: 5672
+    host: 192.168.10.185
+    username: xianqian
+    password: xianqian
+
+
+mybatis:
+  #实体类所做包
+  type-aliases-package: com.djcps.boot.modules.*.model
+  #mapper.xml所在位置
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+
+
+#日志
+logging:
+  file:
+    max-size: 10MB
+    max-history: 6

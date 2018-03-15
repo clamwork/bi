@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djcps.boot.modules.user.mapper.InnerUserMapper">
+    <!--目的：为Dao接口方法提供SQL语句-->
+
+    <!--映射实体对象-->
+    <resultMap id="innerUserResultMap" type="com.djcps.boot.modules.user.model.InnerUserPO">
+        <id property="fid" column="id" />
+        <result property="fusername" column="userName" />
+    </resultMap>
+    <sql id="baseSearchSql">
+        rowid as fid,
+        faccount as fusername
+    </sql>
+
+    <select id="findAll" resultMap="innerUserResultMap">
+        SELECT <include refid="baseSearchSql" />
+        FROM t_account_parent
+    </select>
+
+</mapper>
