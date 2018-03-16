@@ -38,6 +38,13 @@ public class InnerUserController {
         return successMsg(list);
     }
 
+    @RequestMapping(value = "listByRedis",method = {RequestMethod.GET,RequestMethod.POST})
+    public Map<String,Object> listByRedis() throws Exception{
+        logger.info("redis list param");
+        List<InnerUserPO> list = innerUserService.findAllByRedis();
+        return successMsg(list);
+    }
+
     @RequestMapping(value = "msg",method = {RequestMethod.GET,RequestMethod.POST})
     public Map<String,Object> msg() throws Exception{
         logger.info("msg listen");

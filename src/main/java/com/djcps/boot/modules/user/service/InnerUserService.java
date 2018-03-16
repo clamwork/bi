@@ -12,4 +12,6 @@ import java.util.List;
 public interface InnerUserService {
 
     List<InnerUserPO> findAll();
+
+    List<InnerUserPO> findAllByRedis();
 }
