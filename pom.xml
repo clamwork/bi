@@ -167,6 +167,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+
 		<filters>
 			<filter>src/main/resources/env/${profiles.active}/application.yml</filter>
             <filter>src/main/resources/env/${profiles.active}/params-config.yml</filter>
@@ -174,14 +176,15 @@
 		<!-- 替换${key}内容 -->
 		<resources>
 			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<resource>
 				<filtering>true</filtering>
 				<!--要到达最底层目录 -->
 				<directory>src/main/resources/env/${profiles.active}</directory>
-			</resource>
-			<resource>
-				<filtering>false</filtering>
-				<!--要到达最底层目录 -->
-				<directory>src/main/resources/mapper</directory>
 			</resource>
 		</resources>
 	</build>
