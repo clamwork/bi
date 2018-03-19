@@ -4,6 +4,9 @@ server:
     path: /demo
 
 spring:
+  aop:
+    auto: true
+
   redis:
     database: 0
     timeout: 60000ms
@@ -57,12 +60,9 @@ mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml
   config-location: classpath:mybatis-config.xml
 
-
 #日志
 logging:
-  file:
-    max-size: 10MB
-    max-history: 6
+#  config: classpath:log4j2.xml
 
 cps:
   user:
@@ -78,3 +78,8 @@ cps:
     inner-user: http://192.168.10.200/djauth/
     map: http://restapi.amap.com/v3/
     order: http://localhost:8080/djorder/
+
+  rpc:
+    package: com.djcps.boot
+    connectTimeout: 1000
+    readTimeout: 1000

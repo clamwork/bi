@@ -1,79 +1,77 @@
 package com.djcps.boot.commons.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Chengw
  * @create 2018/3/16 15:39.
  * @since 1.0.0
  */
-@Component
-@PropertySource(value = "classpath:params-config.yml",ignoreResourceNotFound = true)
+@Configuration
 public class ParamsConfig {
 
+    public String USER_COOKIE_NAME;
+
+    public Integer USER_COOKIE_TIMEOUT;
+
+    public String MESSAGE_SERVER;
+
+    public String WMS_SERVER;
+
+    public String NUMBER_SERVER;
+
+    public String ADDRESS_SERVER;
+
+    public String INNERUSER_SERVER;
+
+    public String MAP_SERVER;
+
+    public String ORDER_SERVER;
+
     @Value("${cps.user.cookie.name}")
-    private String userCookieName;
+    public void setUserCookieName(String userCookieName) {
+        this.USER_COOKIE_NAME = userCookieName;
+    }
 
     @Value("${cps.user.cookie.timeout}")
-    private Integer userCookieTimeout;
+    public void setUserCookieTimeout(Integer userCookieTimeout) {
+        this.USER_COOKIE_TIMEOUT = userCookieTimeout;
+    }
 
     @Value("${cps.server.message}")
-    private String messageServer;
+    public void setMessageServer(String messageServer) {
+        this.MESSAGE_SERVER = messageServer;
+    }
 
     @Value("${cps.server.wms}")
-    private String wmsServer;
+    public void setWmsServer(String wmsServer) {
+        this.WMS_SERVER = wmsServer;
+    }
 
     @Value("${cps.server.number}")
-    private String numberServer;
+    public void setNumberServer(String numberServer) {
+        this.NUMBER_SERVER = numberServer;
+    }
 
     @Value("${cps.server.address}")
-    private String addressServer;
+    public void setAddressServer(String addressServer) {
+        this.ADDRESS_SERVER = addressServer;
+    }
 
     @Value("${cps.server.inner-user}")
-    private String innerUserServer;
+    public void setInnerUserServer(String innerUserServer) {
+        this.INNERUSER_SERVER = innerUserServer;
+    }
 
     @Value("${cps.server.map}")
-    private String mapServer;
+    public void setMapServer(String mapServer) {
+        this.MAP_SERVER = mapServer;
+    }
 
     @Value("${cps.server.order}")
-    private String orderServer;
-
-    public String getUserCookieName() {
-        return userCookieName;
-    }
-
-    public Integer getUserCookieTimeout() {
-        return userCookieTimeout;
-    }
-
-    public String getMessageServer() {
-        return messageServer;
-    }
-
-    public String getWmsServer() {
-        return wmsServer;
-    }
-
-    public String getNumberServer() {
-        return numberServer;
-    }
-
-    public String getAddressServer() {
-        return addressServer;
-    }
-
-    public String getInnerUserServer() {
-        return innerUserServer;
-    }
-
-    public String getMapServer() {
-        return mapServer;
-    }
-
-    public String getOrderServer() {
-        return orderServer;
+    public void setOrderServer(String orderServer) {
+        this.ORDER_SERVER = orderServer;
     }
 }
 

@@ -14,4 +14,6 @@ public interface InnerUserService {
     List<InnerUserPO> findAll();
 
     List<InnerUserPO> findAllByRedis();
+
+    String getNumber();
 }

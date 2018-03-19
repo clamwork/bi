@@ -1,6 +1,7 @@
 package com.djcps.boot.modules.user.service.impl;
 
 import com.djcps.boot.commons.redis.RedisClientSingle;
+import com.djcps.boot.commons.server.NumberServer;
 import com.djcps.boot.modules.user.dao.UserRedisDao;
 import com.djcps.boot.modules.user.mapper.InnerUserMapper;
 import com.djcps.boot.modules.user.model.InnerUserPO;
@@ -24,6 +25,9 @@ public class InnerUserServiceImpl implements InnerUserService {
     private InnerUserMapper innerUserMapper;
 
     @Autowired
+    private NumberServer numberServer;
+
+    @Autowired
     private UserRedisDao userRedisDao;
 
 
@@ -37,5 +41,10 @@ public class InnerUserServiceImpl implements InnerUserService {
     @Override
     public List<InnerUserPO> findAllByRedis() {
         return userRedisDao.list();
+    }
+
+    @Override
+    public String getNumber() {
+        return numberServer.getNumber(1);
     }
 }

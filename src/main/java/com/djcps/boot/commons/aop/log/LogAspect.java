@@ -40,7 +40,7 @@ public class LogAspect {
         try{
             getParameter(pjp, addLog,proceed);
         }catch (Exception e){
-            logger.error("Log {}",e.getStackTrace());
+            logger.error("Log {}",e.getMessage());
         }
         long end = System.currentTimeMillis();
         logger.info("方法运行时间 {}",(end - start));

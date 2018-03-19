@@ -61,7 +61,15 @@ public class InnerUserController {
 
     @RequestMapping(value = "config",method = {RequestMethod.GET,RequestMethod.POST})
     public Map<String,Object> config() throws Exception{
-        logger.info("paramsConfig : {}", JSONObject.toJSONString(paramsConfig));
+        logger.info("paramsConfig : {}", JSONObject.toJSONString(paramsConfig.USER_COOKIE_NAME));
         return successMsg(paramsConfig);
+    }
+
+
+    @RequestMapping(value = "number",method = {RequestMethod.GET,RequestMethod.POST})
+    public Map<String,Object> number() throws Exception{
+        String number = innerUserService.getNumber();
+        logger.info("number : {}", JSONObject.toJSONString(number));
+        return successMsg(number);
     }
 }
