@@ -26,7 +26,7 @@
 			<DefaultRolloverStrategy max="5">
 				<Delete basePath="${LOG_HOME}" maxDepth="1">
 					<IfFileName glob="run.*.log.gz" />
-					<IfLastModified age="2d" />
+					<IfLastModified age="7d" />
 				</Delete>
 			</DefaultRolloverStrategy>
 		</RollingRandomAccessFile>
@@ -49,7 +49,7 @@
 			<DefaultRolloverStrategy max="5">
 				<Delete basePath="${LOG_HOME}" maxDepth="1">
 					<IfFileName glob="operation.*.log.gz" />
-					<IfLastModified age="2d" />
+					<IfLastModified age="7d" />
 				</Delete>
 			</DefaultRolloverStrategy>
 		</RollingRandomAccessFile>
