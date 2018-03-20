@@ -217,7 +217,7 @@
 
 		<filters>
 			<filter>src/main/resources/env/${profiles.active}/application.yml</filter>
-            <filter>src/main/resources/env/${profiles.active}/paramsConfig.yml</filter>
+            <filter>src/main/resources/env/${profiles.active}/params-config.yml</filter>
 		</filters>
 		<!-- 替换${key}内容 -->
 		<resources>
