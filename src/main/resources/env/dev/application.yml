@@ -60,10 +60,13 @@ mybatis:
   mapper-locations: classpath:mapper/**/*Mapper.xml
   config-location: classpath:mybatis-config.xml
 
+
 #日志
 logging:
-#  config: classpath:log4j2.xml
+  config: classpath:log4j2.xml
 
+
+#自定义配置
 cps:
   user:
     cookie:

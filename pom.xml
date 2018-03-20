@@ -53,6 +53,16 @@
 	</properties>
 
 	<dependencies>
+		<dependency> <!-- exclude掉spring-boot的默认log配置 -->
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
@@ -61,9 +71,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
-		<dependency>
+		<dependency> <!-- 引入log4j2依赖 -->
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-logging</artifactId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+			<version>2.0.0.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -96,9 +107,45 @@
 		</dependency>
 
 		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
+		</dependency>
+
+		<!-- 基本转换对象与判断对象包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+
+		<!-- 百度开源 校验参数模块 -->
+		<dependency>
+			<groupId>com.baidu.unbiz</groupId>
+			<artifactId>fluent-validator</artifactId>
+			<version>1.0.6</version>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.baidu.unbiz</groupId>
+			<artifactId>fluent-validator-jsr303</artifactId>
+			<version>1.0.5</version>
+			<exclusions>
+				<exclusion>  <!-- declare the exclusion here -->
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!--HTTP 请求工具-->
@@ -168,17 +215,17 @@
 			</plugin>
 		</plugins>
 
-
 		<filters>
 			<filter>src/main/resources/env/${profiles.active}/application.yml</filter>
-            <filter>src/main/resources/env/${profiles.active}/params-config.yml</filter>
+            <filter>src/main/resources/env/${profiles.active}/paramsConfig.yml</filter>
 		</filters>
 		<!-- 替换${key}内容 -->
 		<resources>
+			<!-- 保留除多环境之外的配置 -->
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
-					<include>**/*</include>
+					<include>mapper/*</include>
 				</includes>
 			</resource>
 			<resource>

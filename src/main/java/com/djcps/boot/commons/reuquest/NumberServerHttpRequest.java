@@ -1,6 +1,6 @@
 package com.djcps.boot.commons.reuquest;
 
-import com.djcps.boot.commons.config.ParamsConfig;
+import com.djcps.boot.commons.base.HttpBaseParam;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.Headers;
@@ -13,7 +13,7 @@ import rpc.plugin.http.RPCClientFields;
  * @create 2018/3/16 17:49.
  * @since 1.0.0
  */
-@RPCClientFields(urlfield = "NUMBER_SERVER", urlbean = ParamsConfig.class)
+@RPCClientFields(urlfield = "numberServer", urlbean = HttpBaseParam.class)
 public interface NumberServerHttpRequest {
 
     /**

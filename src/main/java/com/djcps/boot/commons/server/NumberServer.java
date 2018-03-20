@@ -22,7 +22,7 @@ public class NumberServer {
         okhttp3.RequestBody rb = okhttp3.RequestBody.create(okhttp3.MediaType.parse("application/x-www-form-urlencoded; charset=utf-8"),param);
         //调用借口获取信息
         HTTPResponse http = numberServerHttpRequest.getNumber(rb);
-        return JSONObject.toJSONString(http);
+        return JSONObject.toJSONString(http.getBodyString());
     }
 
 }

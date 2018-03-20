@@ -1,7 +1,6 @@
 package com.djcps.boot;
 
 import org.mybatis.spring.annotation.MapperScan;
-import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -17,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 /**
  * @author chengw
  */
-@SpringBootApplication(exclude= {MybatisAutoConfiguration.class,
+@SpringBootApplication(exclude= {
 		TransactionAutoConfiguration.class,
 		RabbitAutoConfiguration.class,
 		RedisAutoConfiguration.class,
@@ -25,9 +24,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableAutoConfiguration
 @EnableRabbit
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.djcps")
-@MapperScan(basePackages = "com.djcps.boot.modules.**.mapper")
-//@PropertySource(value = {"params-config.yml"},ignoreResourceNotFound = true,encoding = "UTF-8")
+@PropertySource(value = {"classpath:params-config.yml"})
+@ComponentScan("com.djcps")
+@MapperScan("com.djcps.boot.modules.**.mapper")
 public class MainApplication {
 
 	public static void main(String[] args) {
