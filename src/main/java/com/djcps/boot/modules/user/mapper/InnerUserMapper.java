@@ -14,7 +14,7 @@ import java.util.List;
 public interface InnerUserMapper {
 
     /**
-     *
+     * 获取所有内部用户
      * @return
      */
     List<InnerUserPO> findAll();

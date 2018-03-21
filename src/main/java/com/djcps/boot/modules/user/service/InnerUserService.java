@@ -11,9 +11,22 @@ import java.util.List;
  */
 public interface InnerUserService {
 
+    /**
+     * 获取所有内部用户
+     * @return
+     */
     List<InnerUserPO> findAll();
 
+    /**
+     * 获取所有内部用户
+     * redis
+     * @return
+     */
     List<InnerUserPO> findAllByRedis();
 
+    /**
+     * 获取随机编码
+     * @return
+     */
     String getNumber();
 }
