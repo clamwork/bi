@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -26,6 +27,11 @@ public class WebAppConfig implements WebMvcConfigurer {
 //        registry.addInterceptor(new ChildAccountAuthInteceptor()).addPathPatterns("/**/order/saveOrder.do",
 //                "/**/grouponpay/paymentOfBlance.do", "/**/grouponpay/payorder.do", "/**/grouponpay/mixPayment.do",
 //                "/**/order/deliveryOrder.do");
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**");
     }
 
     @Bean(name = "mappingJackson2HttpMessageConverter")

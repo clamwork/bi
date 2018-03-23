@@ -6,6 +6,7 @@ import com.djcps.boot.commons.config.ParamsConfig;
 import com.djcps.boot.modules.rabbit.sender.UserSender;
 import com.djcps.boot.modules.user.model.InnerUserPO;
 import com.djcps.boot.modules.user.service.InnerUserService;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,7 @@ public class InnerUserController {
         return successMsg(list);
     }
 
+    @ApiOperation(value = "查询用户从redis获取接口", notes = "检查redis是否存在信息", produces = "application/json")
     @RequestMapping(value = "listByRedis",method = {RequestMethod.GET,RequestMethod.POST})
     public Map<String,Object> listByRedis() throws Exception{
         logger.info("redis list param");
@@ -65,7 +67,7 @@ public class InnerUserController {
         return successMsg(paramsConfig);
     }
 
-
+    @ApiOperation(value = "随机编号获取接口", notes = "检查是否获取到随机编码", produces = "application/json")
     @RequestMapping(value = "number",method = {RequestMethod.GET,RequestMethod.POST})
     public Map<String,Object> number() throws Exception{
         String number = innerUserService.getNumber();

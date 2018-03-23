@@ -27,7 +27,6 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 @EnableAutoConfiguration
 @EnableRabbit
 @EnableScheduling
-@EnableWebSocket
 @EnableTransactionManagement
 @PropertySource(value = {"classpath:params-config.yml"})
 @ComponentScan("com.djcps")
@@ -37,4 +36,5 @@ public class MainApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
 	}
+
 }
