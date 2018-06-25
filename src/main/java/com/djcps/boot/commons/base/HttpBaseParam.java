@@ -2,8 +2,8 @@ package com.djcps.boot.commons.base;
 
 /**
  * @author Chengw
- * @create 2018/3/20 09:50.
- * @since 1.0.0
+ * @since 2018/3/20 09:50.
+ * @version 1.0.0
  */
 public class HttpBaseParam {
 

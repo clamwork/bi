@@ -2,8 +2,8 @@ package com.djcps.boot.modules.user.model;
 
 /**
  * @author Chengw
- * @create 2018/3/15 10:42.
- * @since 1.0.0
+ * @since 2018/3/15 10:42.
+ * @version 1.0.0
  */
 public class InnerUserPO {
 

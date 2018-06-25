@@ -74,24 +74,4 @@ mybatis:
 logging:
   config: classpath:log4j2.xml
 
-
-#自定义配置
-cps:
-  user:
-    cookie:
-      name: token
-      timeout: 1800
-
-  server:
-    message: http://192.168.10.200/djmsgpushserver/
-    wms: http://localhost:8080/djwmsserver/
-    number: http://192.168.10.200:80/djnumserver/
-    address: http://192.168.10.200/djaddressserver/
-    inner-user: http://192.168.10.200/djauth/
-    map: http://restapi.amap.com/v3/
-    order: http://localhost:8080/djorder/
-
-  rpc:
-    package: com.djcps.boot
-    connectTimeout: 1000
-    readTimeout: 1000
+---

@@ -20,8 +20,8 @@ import static com.djcps.boot.commons.msg.MsgTemplate.*;
 
 /**
  * @author Chengw
- * @create 2018/3/15 10:18.
- * @since 1.0.0
+ * @since 2018/3/15 10:18.
+ * @version 1.0.0
  */
 @RestController
 @RequestMapping(value = "user/inner")

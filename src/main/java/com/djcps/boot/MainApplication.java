@@ -9,12 +9,10 @@ import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration;
-import org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 /**
  * @author chengw
@@ -28,7 +26,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 @EnableRabbit
 @EnableScheduling
 @EnableTransactionManagement
-@PropertySource(value = {"classpath:params-config.yml"})
+@PropertySource(value = "classpath:params-config.properties")
 @ComponentScan("com.djcps")
 @MapperScan("com.djcps.boot.modules.**.mapper")
 public class MainApplication {

@@ -26,8 +26,8 @@ public class OnlineController {
 
     private static DjcpsLogger logger = DjcpsLoggerFactory.getLogger(OnlineController.class);
 
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
+//    @Autowired
+//    private SimpMessagingTemplate simpMessagingTemplate;
 
     @MessageMapping("/welcome")
     @SendTo("/topic/say")
@@ -43,6 +43,6 @@ public class OnlineController {
     public void callback() {
         // 发现消息
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        simpMessagingTemplate.convertAndSend("/topic/callback", "定时推送消息时间: " + df.format(new Date()));
+//        simpMessagingTemplate.convertAndSend("/topic/callback", "定时推送消息时间: " + df.format(new Date()));
     }
 }

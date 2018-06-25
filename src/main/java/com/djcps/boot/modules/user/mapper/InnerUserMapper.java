@@ -7,8 +7,8 @@ import java.util.List;
 
 /**
  * @author Chengw
- * @create 2018/3/15 10:43.
- * @since 1.0.0
+ * @since 2018/3/15 10:43.
+ * @version 1.0.0
  */
 @Mapper
 public interface InnerUserMapper {

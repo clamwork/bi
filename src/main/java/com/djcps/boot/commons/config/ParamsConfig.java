@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Chengw
- * @create 2018/3/16 15:39.
- * @since 1.0.0
+ * @since 2018/3/16 15:39.
+ * @version 1.0.0
  */
 @Configuration
 public class ParamsConfig {

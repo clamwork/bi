@@ -14,8 +14,8 @@ import java.util.List;
 
 /**
  * @author Chengw
- * @create 2018/3/15 17:20.
- * @since 1.0.0
+ * @since 2018/3/15 17:20.
+ * @version 1.0.0
  */
 @Component
 public class UserRedisDao {

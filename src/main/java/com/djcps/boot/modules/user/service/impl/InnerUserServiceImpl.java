@@ -1,6 +1,5 @@
 package com.djcps.boot.modules.user.service.impl;
 
-import com.djcps.boot.commons.redis.RedisClientSingle;
 import com.djcps.boot.commons.server.NumberServer;
 import com.djcps.boot.modules.user.dao.UserRedisDao;
 import com.djcps.boot.modules.user.mapper.InnerUserMapper;
@@ -14,8 +13,8 @@ import java.util.List;
 
 /**
  * @author Chengw
- * @create 2018/3/15 10:54.
- * @since 1.0.0
+ * @since 2018/3/15 10:54.
+ * @version 1.0.0
  */
 @Service
 @Transactional(rollbackFor = {Exception.class})

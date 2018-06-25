@@ -42,7 +42,6 @@
 			<properties>
 				<profiles.active>prod</profiles.active>
 			</properties>
-
 		</profile>
 	</profiles>
 
@@ -230,21 +229,34 @@
 			</plugin>
 		</plugins>
 
-		<filters>
-			<filter>src/main/resources/env/${profiles.active}/application.yml</filter>
-            <filter>src/main/resources/env/${profiles.active}/params-config.yml</filter>
-		</filters>
+		<!--<filters>-->
+			<!--<filter>src/main/resources/env/${profiles.active}/application.yml</filter>-->
+			<!--<filter>src/main/resources/env/${profiles.active}/params-config.properties</filter>-->
+		<!--</filters>-->
 		<!-- 替换${key}内容 -->
 		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
 			<!-- 保留除多环境之外的配置 -->
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
-					<include>mapper/*</include>
+					<include>**/*.conf</include>
 				</includes>
 			</resource>
+			<!-- 过滤不需要的配置 优先级低于保留 -->
 			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>env/**</exclude>
+				</excludes>
 				<filtering>true</filtering>
+			</resource>
+			<resource>
 				<!--要到达最底层目录 -->
 				<directory>src/main/resources/env/${profiles.active}</directory>
 			</resource>
